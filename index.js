@@ -6,11 +6,9 @@ const invoiceController = (() => {
       this.description = description;
       this.total = total;
     }
-    invoiceID(len) {
+    generateInvoiceID(len) {
       let id = "";
-
       let charset = "abcdefghijklmnopqrstuvwxyz0123456789";
-
       for (let i = 0; i < len; i++) {
         id += charset.charAt(Math.floor(Math.random() * charset.length));
       }
@@ -96,7 +94,7 @@ const invoiceController = (() => {
 
       if (invoiceTotal > 0) {
         // generate random invoiceID
-        newInvoice.invoiceID(5);
+        newInvoice.generateInvoiceID(5);
         // generate random invoiceDate
         newInvoice.invoiceDate(5);
         // push new invoice to data structure
@@ -110,10 +108,7 @@ const invoiceController = (() => {
     },
     addNewInput: (inputData, type) => {
       let newDataInput;
-
       const newInput = data.attribute[type];
-
-      console.log(newInput);
 
       // Create new ID
       newInput.length > 0
@@ -135,11 +130,9 @@ const invoiceController = (() => {
     },
     deleteItem: (type, id) => {
       //Find item index by item id
-
       itemIndex = data.attribute[type].findIndex(el => el.ID === id);
 
       //Remove item from array based on its index
-
       itemIndex !== -1 ? data.attribute[type].splice(itemIndex, 1) : null;
     },
     getTotals: () => {
@@ -233,7 +226,6 @@ const UIController = (() => {
     },
     removeInputsElements: () => {
       const descInputFields = document.querySelector(".desc__values__input");
-      console.log(descInputFields.parentNode);
       descInputFields.parentNode.removeChild(descInputFields);
     },
     updateValues: (subscription, totals) => {
@@ -270,11 +262,9 @@ const UIController = (() => {
     updateInvoice: invoice => {
       // 1. remove all input fields
       const inputFields = document.querySelectorAll(".no-list-style");
-
       inputFields.forEach(el => el.parentNode.removeChild(el));
 
       // 2. Date and invoiceID
-
       document.querySelector(
         DOMStrings.date
       ).textContent = `issued: ${invoice.invoiceDate}`.toLocaleUpperCase();
@@ -340,7 +330,6 @@ const controller = ((inCtrl, UICtrl) => {
   const ctrlAddInput = (type, inputField) => {
     let input, newInputData;
 
-    console.log(type);
     // 1. Get clientInput
     input = UICtrl.getNewInput(inputField);
 
@@ -360,7 +349,6 @@ const controller = ((inCtrl, UICtrl) => {
     let input, sub;
     // 1. Get clientInput
     input = UICtrl.getDescValues();
-    console.log(input);
 
     // 2. Add clientInput to invoiceCtrl
     if (input.price > 0 && input.quantity > 0) {
@@ -376,7 +364,7 @@ const controller = ((inCtrl, UICtrl) => {
 
   const ctrlDeleteItem = event => {
     itemID = event.target.parentNode.id;
-    console.log(itemID);
+
     if (itemID.includes("client") || itemID.includes("description")) {
       splitID = itemID.split("-");
       type = splitID[0];
