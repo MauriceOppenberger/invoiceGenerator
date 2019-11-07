@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="print.css" type="text/css" media="print" />
+    <title>Invoice</title>
+</head>
+
+<body>
+    <div id="mainHeader" class="header">
+        <h1>Invoicing</h1>
+        <hr />
+    </div>
+
+
+    <div class="invoice__container" id="printable">
+        <section id="invoiceHeader">
+            <div class="invoice__header">
+                <span class="invoice__date">Issued:</span>
+                <span class="invoice__id">Invoice ID:</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="invoice__info">
+                <div class="invoice__to">
+                    <ul class="clientInfo">
+                        <li class="capital">to</li>
+                        <li class="input__client__field no-list-style"><input class="input__client__info" type="text"
+                                placeholder="contact information">
+                            <button type="submit" class="add__client__info">Add</button></li>
+                    </ul>
+
+
+                </div>
+                <div class="invoice__from">
+                    <ul class="biller">
+                        <li class="capital">from</li>
+                        <li>MODesign</li>
+                        <li>Maurice Oppenberger</li>
+                        <li>mauriceoppenberger@gmail.com</li>
+                        <li>14 Chatsworth Drive, Unit# 209, M4R1R5, Toronto</li>
+                        <li></li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="invoice__description">
+                <ul class="invoiceDescription">
+                    <li class="capital desc">description</li>
+                    <li>
+                        <div class="subsciption">
+                            <span class="type"> <select class="invoice__invoice__type">
+                                    <option value="maintenance" selected>Website Maintenance</option>
+                                    <option value="development">Website Development</option>
+                                    <option value="design">Website Design</option>
+                                </select></span>
+                            <div class="desc__values__input">
+                                <span class="quantity"><input class="input__description__quantity" type="text"
+                                        placeholder="quantity">
+
+                                </span>
+                                <span class="value"><input class="input__description__value" type="text"
+                                        placeholder="item value">
+                                    <button type="submit" class="add__description__values">Add</button>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <ul class="desc__items">
+                        <li class="input__description__field no-list-style"><input class="input__invoice__description"
+                                type="text" placeholder="invoice description">
+                            <button type="submit" class="add__invoice__description ">Add</button></li>
+
+                    </ul>
+
+                </ul>
+                <br />
+                <ul class="extra__info">
+                    <li class="capital">
+                        terms & payment options
+                    </li>
+                    <li>
+                        Payment is due upon receipt of the invoice
+                    </li>
+                    <li>Cheque or E-Transfer to maurice_oppenberger@hotmail.com</li>
+
+                </ul>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="invoice__payment">
+                <ul>
+                    <li class="capital">payment</li>
+                    <li class="invoice__subtotal cost">
+                        <span class="label">SUBTOTAL</span>
+                        <span class="value">0</span>
+                    </li>
+                    <li class="invoice__taxes cost">
+                        <span class="label">+ 13% GST/HST</span>
+
+                        <span class="value"> + 0</span>
+                    </li>
+                    <li class="invoice__total cost" style="color: red">
+                        <span class="label">TOTAL BALANCE</span>
+                        <span class="value">0</span>
+                    </li>
+                </ul>
+                <br />
+
+
+                <div class="invoice__footer">
+                    <h2 class="capital footer">thank you for your business</h2>
+                    <br />
+                    <ul class="extra__info">
+                        <li>modesign</li>
+                        <li>registered business 765583331</li>
+                        <li>oppenberger.com</li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- <section id="footer">
+            <div class="invoice__footer">
+                <p class="capital">thank you for your buisness</p>
+            </div>
+        </section> -->
+        <button id="non-printable" type="submit" class="add__invoice">Submit & Print</button>
+    </div>
+
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
